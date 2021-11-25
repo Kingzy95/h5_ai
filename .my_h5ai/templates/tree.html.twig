@@ -1,0 +1,22 @@
+<ul>
+    {% for link in links %}
+        {% set ui_active = false %}
+        {% if relative_script_dir ~ current_dir starts with link.full_path %}
+            {% set ui_active = true %}
+        {% endif %}
+        <li class="tree-item {{ link.dirs is not empty ? 'collapsible' }} {{ ui_active ? 'active' }}">
+            <i class="{{ link.dirs is not empty ? 'dropdown' }} icon"></i>
+            <a href="{{ link.full_path }}">
+                <i class="{{ ui_active ? 'orange folder open' : 'yellow folder' }} icon"></i>
+                {% if relative_script_dir ~ current_dir == link.full_path %}
+                    <strong>{{ link.name }}</strong>
+                {% else %}
+                    <span>{{ link.name }}</span>
+                {% endif %}
+            </a>
+            {% if link.dirs is not empty %}
+                {% include 'tree.html.twig' with { links: link.dirs } %}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

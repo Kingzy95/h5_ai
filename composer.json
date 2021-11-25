@@ -1,0 +1,8 @@
+{
+    "config": {
+        "vendor-dir": ".my_h5ai/vendor/"
+    },
+    "require": {
+        "twig/twig": "^2.11"
+    }
+}

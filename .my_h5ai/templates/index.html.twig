@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ (path_breadcrumb|last is empty) ? relative_script_dir ~ '/' : path_breadcrumb|last }} - my_h5ai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/atom-one-light.min.css">
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        padding-top: 2rem;
+    }
+
+    body.inverted {        
+        background-color: #121212;
+        color: white;
+    }
+
+    body.inverted > #h5ai-container.inverted {
+        background-color: #292929;
+    }
+
+    .h5ai-tree {
+        overflow: auto;
+        max-height: 40rem;
+    }
+
+    .h5ai-tree ul {
+        list-style: none;
+    }
+
+    .h5ai-tree ul > li > ul {
+        padding-left: 1rem;
+    }
+
+    .ui.breadcrumb{
+        padding-top: 0px!important;
+    }
+
+    .h5ai-tree .tree-item.collapsible > .dropdown.icon {
+        cursor: pointer;
+    }
+
+    .h5ai-tree .tree-item.collapsible:not(.active) > ul {
+        display: none;
+    }
+
+    .h5ai-tree .tree-item.collapsible:not(.active) > .dropdown.icon::before {
+        content: '\f0da';
+    }
+
+    .h5ai-tree .tree-item.collapsible.active {
+        display: block;
+    }
+
+    #h5ai-raw-file-preview pre {
+        overflow: auto;
+    }
+
+    #h5ai-top-bar-breadcrumb {
+        margin-left: 0.5em;
+    }
+
+    footer {
+        font-size: 0.9em;
+        color: #999;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <div id="h5ai-container" class="ui stackable grid container">
+        <div class="sixteen wide column">
+            <div id="h5ai-top-bar" class="ui segment">
+                <button id="page-backward-btn" class="ui tiny icon compact button"><i class="left arrow icon"></i></button>
+                <button id="page-forward-btn" class="ui tiny icon compact button"><i class="right arrow icon"></i></button>
+                <div id="h5ai-top-bar-breadcrumb" class="ui breadcrumb">
+                    {% if request_path == '/' %}
+                        <strong>
+                            <i class="globe icon"></i>
+                            <span>Server Root</span>
+                        </strong>
+                    {% else %}
+                        {% if path_breadcrumb is not empty %}
+                            <a href="{{ relative_script_dir ~ '/' }}"><i class="globe icon"></i></a>
+                            <div class="divider"> / </div>
+                        {% endif %}
+                        {% set bc_path = relative_script_dir ~ '/' %}
+                        {% for part in path_breadcrumb %}
+                            {% if part is not empty %}
+                                {% set bc_path = bc_path ~ part ~ '/' %}
+                                {% if not loop.last %}
+                                    <a class="section" href="{{ bc_path }}">{{ part }}</a>
+                                    <div class="divider"> / </div>
+                                {% else %}
+                                    <strong class="section">{{ part }}</strong>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                {% if use_dark_mode is defined and use_dark_mode == true %}
+                    <button id="toggle-dark-mode" data-tooltip="Toggle Dark Mode" data-inverted data-position="bottom right" class="ui tiny black icon right floated active button"><i id="dark-mode-icon" class="moon icon"></i></button>
+                {% else %}
+                    <button id="toggle-dark-mode" data-tooltip="Toggle Dark Mode" data-position="bottom right" class="ui tiny icon right floated button"><i id="dark-mode-icon" class="moon outline icon"></i></button>
+                {% endif %}
+            </div>
+        </div>
+        <div class="six wide column">
+            <aside>
+                <div class="h5ai-tree">
+                    <ul>
+                        <li>
+                            <a href="{{ relative_script_dir ~ '/' }}">
+                                <i class="orange open folder icon"></i>
+                                <span>{{ relative_script_dir ~ '/' }}</span>
+                            </a>
+                            {% if directory_tree is not empty %}
+                                {% include 'tree.html.twig' with { links: directory_tree, current_dir: request_path } %}
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        <div class="ten wide column">
+            <main>
+                {% if current_dir|length <= 1 %}
+                    <div id="h5ai-empty-dir" class="ui placeholder segment">
+                        <div class="ui icon header">
+                            No files are in this directory.
+                        </div>
+                        <a class="ui primary button" href="{{ '..' }}">
+                            <i class="left arrow icon"></i>
+                            <span>Go to parent directory</span>
+                        </a>
+                    </div>
+                {% elseif current_dir is not empty %}
+                    <table id="h5ai-dir-table" class="ui very basic sortable selectable table">
+                        <thead>
+                        <tr>
+                            <th>File name</th>
+                            <th>Last modified</th>
+                            <th>Size</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for entry in current_dir %}
+                            <tr>
+                                <td>
+                                    {% if entry.type == 'directory' %}
+                                        <i class="yellow folder icon"></i>
+                                        <a href="{{ entry.name }}">{{ entry.name }}</a>
+                                    {% else %}
+                                        <i class="{{ entry.name|file_icon }} icon"></i>
+                                        <a href="{{ entry.name }}" class="h5ai-item-previewable" data-filename="{{ entry.name }}">{{ entry.name }}</a>
+                                    {% endif %}
+                                </td>
+                                <td data-sort-value="{{ entry.mtime }}">{{ entry.mtime|date }}</td>
+                                <td data-sort-value="{{ entry.size_unformatted }}">{{ entry.size }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+            </main>
+        </div>
+        <footer class="sixteen wide column">
+            <p>Made by Emmanuel Mingui for Epitech.</p>
+        </footer>
+    </div>
+    <div id="h5ai-image-preview" class="ui basic modal">
+        <i class="close icon"></i>
+        <div class="header"></div>
+        <div class="image content">
+            <img class="ui fluid image">
+        </div>
+    </div>
+    <div id="h5ai-raw-file-preview" class="ui basic modal">
+        <i class="close icon"></i>
+        <div class="header"></div>
+        <div class="content">
+            <pre><code></code></pre>
+        </div>
+    </div>
+    <div id="h5ai-video-preview" class="ui basic modal">
+        <i class="close icon"></i>
+        <div class="header"></div>
+        <div class="content">
+            <video width="100%" height="100%" controls>
+                <source src="">
+            </video>
+        </div>
+    </div>
+    <div id="h5ai-audio-preview" class="ui basic modal">
+        <i class="close icon"></i>
+        <div class="header"></div>
+        <div class="content">
+            <audio style="width: 100%;" controls>
+                <source src="">
+            </audio>
+        </div>
+    </div>
+    <div id="h5ai-loading-box">
+        <div class="ui dimmer">
+            <div class="ui large text loader">Loading</div>
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
+<script src="https://semantic-ui.com/javascript/library/tablesort.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script>
+    $('.ui.sortable.table').tablesort();
+    $('.h5ai-tree .tree-item.collapsible > .dropdown.icon').click(function() {
+        $(this).parent('.tree-item.collapsible').toggleClass('active');
+    });
+    $('#h5ai-audio-preview .close.icon').click(function() {
+        let audioElement = $("#h5ai-audio-preview audio").get(0);
+        audioElement.pause();
+    });
+    $('#h5ai-video-preview .close.icon').click(function() {
+        let videoElement = $("#h5ai-video-preview video").get(0);
+        videoElement.pause();
+    });
+    $('.h5ai-item-previewable').click(function(e) {
+        const SUPPORTED_PREVIEWS = [
+            'jpg', 'jpeg', 'png', 'gif', 'svg', 'webp',
+            'txt', 'json', 'xml', 'css', 'js',
+            'mp4', 'webm', 'mp3', 'pdf, 'sql'
+        ];
+        const fileExtension = $(this).attr('data-filename').split('.').pop();
+        const fileLink = $(this).attr('href');
+        if (SUPPORTED_PREVIEWS.includes(fileExtension)) {
+            e.preventDefault();
+            if (['jpg', 'jpeg', 'png', 'gif', 'svg', 'webp'].includes(fileExtension)) {
+                $('#h5ai-image-preview > .header').text(fileLink);
+                $('#h5ai-image-preview img').attr('src', fileLink);
+                $('#h5ai-image-preview').modal('show');
+            }
+            else if(['txt', 'json', 'xml', 'css', 'js'].includes(fileExtension)) {
+                $('#h5ai-raw-file-preview > .header').text(fileLink);
+
+                let loadingDiv = $("#h5ai-loading-box");
+                loadingDiv.find('.ui.dimmer').addClass('active');
+
+                fetch($(this).attr('data-filename')).then(function(response) {
+                    response.text().then(function(data) {
+                        let previewElement = $('#h5ai-raw-file-preview');
+                        let codeElement = previewElement.find('code');
+                        codeElement.text(data);
+                        let hlData = hljs.highlightAuto(codeElement.text()).value;
+                        codeElement.html(hlData);
+                        loadingDiv.find('.ui.dimmer').removeClass('active');
+                        previewElement.modal('show');
+                    });
+                })
+            }
+            else if(['mp4', 'webp'].includes(fileExtension)) {
+                $('#h5ai-video-preview > .header').text(fileLink);
+                $('#h5ai-video-preview video source').attr('src', fileLink);
+                $('#h5ai-video-preview').modal('show');
+                $('#h5ai-video-preview video').get(0).load();
+                $('#h5ai-video-preview video').get(0).play();
+            }
+            else if (['mp3'].includes(fileExtension)) {
+                $('#h5ai-audio-preview > .header').text(fileLink);
+                $('#h5ai-audio-preview audio source').attr('src', fileLink);
+                $('#h5ai-audio-preview').modal('show');
+                $('#h5ai-audio-preview audio').get(0).load();
+                $('#h5ai-audio-preview audio').get(0).play();
+            }
+        }
+    });
+
+    $("#page-backward-btn").click(function () {
+        window.history.back();
+    });
+    $('#page-forward-btn').click(function() {
+        window.history.forward();
+    });
+    
+    $('#toggle-dark-mode').mousedown(function(e) {
+        let enableDarkMode = !($('body').hasClass('inverted'));
+        
+        if (enableDarkMode) {
+            $('body').addClass('inverted');
+            $('#h5ai-top-bar').addClass('inverted');
+            $('#page-backward-btn').addClass('black');
+            $('#page-forward-btn').addClass('black');
+            $('#h5ai-container').addClass('inverted');
+            $('#h5ai-dir-table').addClass('inverted');
+            $('#h5ai-empty-dir').addClass('inverted');
+            $('#dark-mode-icon').removeClass('moon outline').addClass('sun outline');
+            $(this).addClass('black').attr('data-inverted', '');
+            localStorage.setItem('enableDarkMode', true);
+        }
+        else {        
+            $('body').removeClass('inverted');
+            $('#h5ai-top-bar').removeClass('inverted');
+            $('#page-backward-btn').removeClass('black');
+            $('#page-forward-btn').removeClass('black');
+            $('#h5ai-container').removeClass('inverted');
+            $('#h5ai-dir-table').removeClass('inverted');
+            $('#h5ai-empty-dir').removeClass('inverted');
+            $('#dark-mode-icon').removeClass('sun outline').addClass('moon outline');
+            $(this).removeClass('black').attr('data-inverted', null);
+            localStorage.setItem('enableDarkMode', false);
+        }
+        
+        e.preventDefault();
+    });
+    
+    $(document).ready(function() {
+        if (localStorage.getItem('enableDarkMode') == 'true')
+            $('#toggle-dark-mode').trigger('mousedown');
+    });
+</script>
+</body>
+</html>
