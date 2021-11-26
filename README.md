@@ -1,5 +1,5 @@
 # my_h5ai
-Indexateur de serveur web
+Indexeur de serveur web
 
 ## Exigences
 - Compositeur gestionnaire de paquets PHP (https://getcomposer.org)
@@ -15,3 +15,7 @@ composer install --no-dev
 # h5_ai
 ```
 
+##Template du projet avec en exemple l'indexation d'un projet
+![image](template-Bg-white.png)
+
+![image](template-Bg-black.png)
