@@ -2,97 +2,93 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f42cd2ff-3a11-4bf4-856e-bad45c12bb5d" name="Changes" comment="Update ALGO AND FRONTEND (BACKGROUND)">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/.styleci.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Console/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Exceptions/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Http/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Http/Middleware/Authenticate.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Http/Middleware/PreventRequestsDuringMaintenance.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Http/Middleware/TrimStrings.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Http/Middleware/TrustHosts.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Http/Middleware/TrustProxies.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Models/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/artisan" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/bootstrap/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/bootstrap/cache/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/composer.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/config/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/config/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/config/broadcasting.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/config/cache.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/config/cors.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/config/database.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/config/filesystems.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/config/hashing.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/config/logging.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/config/mail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/config/queue.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/config/sanctum.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/config/services.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/config/session.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/config/view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/database/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/database/factories/UserFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/phpunit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/public/.htaccess" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/public/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/public/web.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/resources/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/resources/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/resources/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/resources/lang/en/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/resources/lang/en/pagination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/resources/lang/en/passwords.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/resources/lang/en/validation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/resources/views/welcome.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/routes/api.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/routes/channels.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/routes/console.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/routes/web.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/server.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/storage/app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/storage/app/public/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/storage/framework/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/storage/framework/cache/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/storage/framework/cache/data/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/storage/framework/sessions/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/storage/framework/testing/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/storage/framework/views/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/storage/logs/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/tests/CreatesApplication.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/tests/Feature/ExampleTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/tests/TestCase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/tests/Unit/ExampleTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laratweet/webpack.mix.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/my_H5AI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/my_H5AI.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.my_h5ai/templates/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/.my_h5ai/templates/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/.styleci.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Console/Kernel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Exceptions/Handler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Http/Controllers/Controller.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Http/Kernel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Http/Middleware/Authenticate.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Http/Middleware/EncryptCookies.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Http/Middleware/PreventRequestsDuringMaintenance.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Http/Middleware/TrimStrings.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Http/Middleware/TrustHosts.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Http/Middleware/TrustProxies.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Models/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Providers/AppServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Providers/AuthServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Providers/BroadcastServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Providers/EventServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/app/Providers/RouteServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/artisan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/bootstrap/app.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/bootstrap/cache/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/config/app.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/config/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/config/broadcasting.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/config/cache.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/config/cors.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/config/database.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/config/filesystems.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/config/hashing.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/config/logging.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/config/mail.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/config/queue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/config/sanctum.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/config/services.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/config/session.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/config/view.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/database/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/database/factories/UserFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/database/seeders/DatabaseSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/phpunit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/public/.htaccess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/public/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/public/web.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/resources/css/app.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/resources/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/resources/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/resources/lang/en/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/resources/lang/en/pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/resources/lang/en/passwords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/resources/lang/en/validation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/resources/views/welcome.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/routes/api.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/routes/channels.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/routes/console.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/routes/web.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/server.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/storage/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/storage/app/public/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/storage/framework/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/storage/framework/cache/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/storage/framework/cache/data/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/storage/framework/sessions/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/storage/framework/testing/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/storage/framework/views/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/storage/logs/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/tests/CreatesApplication.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/tests/Feature/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/tests/TestCase.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/tests/Unit/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laratweet/webpack.mix.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,8 +138,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1637805665464</updated>
-      <workItem from="1637805669791" duration="3417000" />
+      <workItem from="1637805669791" duration="5618000" />
     </task>
+    <task id="LOCAL-00001" summary="Update ALGO AND FRONTEND (BACKGROUND)">
+      <created>1637887476986</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1637887476986</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
