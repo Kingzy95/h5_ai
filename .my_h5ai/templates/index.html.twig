@@ -232,7 +232,7 @@
         const SUPPORTED_PREVIEWS = [
             'jpg', 'jpeg', 'png', 'gif', 'svg', 'webp',
             'txt', 'json', 'xml', 'css', 'js',
-            'mp4', 'webm', 'mp3', 'pdf, 'sql'
+            'mp4', 'webm', 'mp3', 'pdf', 'sql'
         ];
         const fileExtension = $(this).attr('data-filename').split('.').pop();
         const fileLink = $(this).attr('href');
@@ -317,7 +317,7 @@
     });
     
     $(document).ready(function() {
-        if (localStorage.getItem('enableDarkMode') == 'true')
+        if (localStorage.getItem('enableDarkMode') === 'true')
             $('#toggle-dark-mode').trigger('mousedown');
     });
 </script>

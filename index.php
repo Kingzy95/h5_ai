@@ -1,4 +1,5 @@
 <?php
+
 require_once './.my_h5ai/vendor/autoload.php';
 require_once './.my_h5ai/H5AITwigExtension.php';
 
@@ -8,7 +9,7 @@ require_once './.my_h5ai/H5AITwigExtension.php';
  * @param string $path
  * @return array
  */
-function h5ai_get_directories(string $base_path, string $path = '')
+function h5ai_get_directories(string $base_path, string $path = ''): array
 {
     $result = [];
     if (($handle = opendir($base_path . $path)) !== false) {
@@ -37,7 +38,7 @@ function h5ai_get_directories(string $base_path, string $path = '')
  * @param string $path
  * @return array
  */
-function h5ai_get_dir_contents(string $path)
+function h5ai_get_dir_contents(string $path): array
 {
     $result = [];
     if (($handle = opendir($path)) !== false) {
@@ -77,9 +78,9 @@ function h5ai_get_dir_contents(string $path)
 /**
  * Retourne la taille du contenu d'un répertoire
  * @param string $directory
- * @return false|int
+ * @return array
  */
-function h5ai_get_dir_size(string $directory)
+function h5ai_get_dir_size(string $directory): array
 {
     $size = 0;
     if (($handle = opendir($directory)) !== false) {
@@ -99,7 +100,7 @@ function h5ai_get_dir_size(string $directory)
  * @param int $size
  * @return string
  */
-function h5ai_format_filesize(int $size)
+function h5ai_format_filesize(int $size): string
 {
     $units = array( ' bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
     $power = $size > 0 ? floor(log($size, 1024)) : 0;
@@ -129,10 +130,13 @@ $twig->addExtension(new H5AITwigExtension());
 // current_dir -- Le contenu du répertoire courant
 // path_breadcrumb -- Un tableau de chaque répertoire parent jusqu'au répertoire actuel
 // relative_script_dir -- Le chemin relatif entre DOCUMENT_ROOT et le script. Utilisé pour la génération d'URL.
-echo $twig->render('index.html.twig', [
-    'request_path' => $_SERVER['PATH_INFO'],
-    'directory_tree' => $dir_tree,
-    'current_dir' => $dir_contents,
-    'path_breadcrumb' => explode('/', trim($_SERVER['PATH_INFO'], '/')),
-    'relative_script_dir' => $relative_dir
-]);
+try {
+    echo $twig->render('index.html.twig', [
+        'request_path' => $_SERVER['PATH_INFO'],
+        'directory_tree' => $dir_tree,
+        'current_dir' => $dir_contents,
+        'path_breadcrumb' => explode('/', trim($_SERVER['PATH_INFO'], '/')),
+        'relative_script_dir' => $relative_dir
+    ]);
+} catch (\Twig\Error\LoaderError | \Twig\Error\RuntimeError | \Twig\Error\SyntaxError $e) {
+}

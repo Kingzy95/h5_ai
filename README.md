@@ -13,3 +13,5 @@ composer install --no-dev
 - Cela permettra d'installer les dependances requises par le script pour fonctionner.
 - Ouvrez votre serveur web au chemin d'acces contenant le script
 # h5_ai
+```
+
