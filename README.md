@@ -1,21 +1,24 @@
 # my_h5ai
-Indexeur de serveur web
+Web server indexer
 
-## Exigences
-- Compositeur gestionnaire de paquets PHP (https://getcomposer.org)
+## Requirements
+- PHP package manager composer (https://getcomposer.org)
 
 ## Installation
-- Placez le script avec tous ses fichiers et son dossier dans un repertoire (ou la racine) de votre serveur web.
-- Ouvrez votre terminal dans ce même dossier et lancez la commande
-Scenario en coquille
-composer install --no-dev
+- Put the script with all its files and folder in a directory (or the root) of your web server.
+- Open your terminal in this same folder and run the command
+  Shell scenario
+  compose install --no-dev
 ```
-- Cela permettra d'installer les dependances requises par le script pour fonctionner.
-- Ouvrez votre serveur web au chemin d'acces contenant le script
+- This will install the dependencies required by the script to run.
+- Open your web server to the path containing the script
 # h5_ai
 ```
 
-##Template du projet avec en exemple l'indexation d'un projet
+## Template
+
+- Project model with an example of project indexing
+
 ![image](template-Bg-white.png)
 
 ![image](template-Bg-black.png)
